@@ -1,137 +1,120 @@
+// src/components/Experience.tsx
 "use client"
 
-import { useState } from "react"
+import React from "react"
+import Image from "next/image"
+import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Tabs, TabsContent } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
-import { Briefcase, GraduationCap } from "lucide-react"
 
 export default function Experience() {
-  const [activeTab, setActiveTab] = useState("education")
-
-  const education = [
-    {
-      degree: "Bachelor of Science in Computer Science",
-      institution: "University of Technology",
-      period: "2020 - Present",
-      description:
-        "Focusing on Artificial Intelligence, Web Development, and Data Structures & Algorithms. Current GPA: 3.8/4.0",
-      achievements: ["Dean's List (2020-2023)", "Best Student Project Award (2022)"],
-    },
-    {
-      degree: "High School Diploma",
-      institution: "Science Academy",
-      period: "2016 - 2020",
-      description: "Advanced courses in Mathematics, Physics, and Computer Science.",
-      achievements: ["Valedictorian", "National Science Competition Finalist"],
-    },
-  ]
-
   const work = [
     {
-      position: "Software Development Intern",
-      company: "Tech Innovations Inc.",
-      period: "Summer 2023",
+      logo: "/logos/western.jpg",
+      position: "Software Developer",
+      company: "ALICE A BRUXELLES",
+      period: "May 2025 – Present",
       description:
-        "Developed and maintained web applications using React and Node.js. Collaborated with senior developers to implement new features and fix bugs.",
-      technologies: ["React", "Node.js", "MongoDB", "Git"],
+        "Built an interactive 3D art exhibition website with Unity for immersive virtual navigation.",
     },
     {
-      position: "Research Assistant",
-      company: "University AI Lab",
-      period: "2022 - Present",
+      logo: "/logos/empowherto.png",
+      position: "Project Manager & Developer",
+      company: "EmpowHERto",
+      period: "Feb 2025 – Present",
       description:
-        "Assisting in research projects focused on natural language processing and machine learning algorithms. Implementing and testing models using Python and TensorFlow.",
-      technologies: ["Python", "TensorFlow", "NLP", "Data Analysis"],
+        "Engineered FINANCE4HER, a React/Node.js financial literacy app with secure authentication and real-time data visualization.",
     },
     {
-      position: "Freelance Web Developer",
-      company: "Self-employed",
-      period: "2021 - Present",
+      logo: "/logos/go-hockey.jpg",
+      position: "Project Manager",
+      company: "GO Hockey",
+      period: "Sept 2024 – Jan 2025",
       description:
-        "Designing and developing responsive websites for small businesses and startups. Managing client relationships and delivering projects on time.",
-      technologies: ["HTML/CSS", "JavaScript", "WordPress", "UI/UX Design"],
+        "Developed a React registration portal featuring Stripe payments and real-time Supabase synchronization.",
+    },
+    {
+      logo: "/logos/lhsc.avif",
+      position: "Software Developer",
+      company: "London Health Sciences Centre",
+      period: "May 2024 – Aug 2024",
+      description:
+        "Developed an automated NLP pipeline—leveraging spaCy, custom regex rules, and LLM-driven prompts—to systematically extract and standardize critical clinical data from unstructured patient notes.",
+    },
+    {
+      logo: "/logos/uwo-tsi.png",
+      position: "Frontend Developer",
+      company: "UWO Tech for Social Impact",
+      period: "May 2024 – Aug 2024",
+      description:
+        "Implemented responsive React interfaces and consumed RESTful APIs for community outreach projects.",
     },
   ]
 
   return (
     <section id="experience" className="py-16 md:py-24">
-      <div className="container">
-        <div className="space-y-2 text-center mb-12 opacity-0 animate-fadeIn">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Experience & Education</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">My academic background and professional journey</p>
-        </div>
+      <div className="container mx-auto px-4">
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="space-y-2 text-center mb-12"
+        >
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            Work Experience
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            My professional journey and roles
+          </p>
+        </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="grid w-full grid-cols-2 mb-8 bg-muted rounded-lg overflow-hidden">
-            <button
-              className={`flex items-center justify-center gap-2 py-3 px-4 font-medium transition-colors ${activeTab === "education" ? "bg-primary text-primary-foreground" : "hover:bg-muted-foreground/10"}`}
-              onClick={() => setActiveTab("education")}
-            >
-              <GraduationCap className="h-4 w-4" /> Education
-            </button>
-            <button
-              className={`flex items-center justify-center gap-2 py-3 px-4 font-medium transition-colors ${activeTab === "work" ? "bg-primary text-primary-foreground" : "hover:bg-muted-foreground/10"}`}
-              onClick={() => setActiveTab("work")}
-            >
-              <Briefcase className="h-4 w-4" /> Work Experience
-            </button>
-          </div>
+        <Tabs defaultValue="work" className="max-w-4xl mx-auto">
+          <TabsContent value="work" className="space-y-6">
+            {work.map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+              >
+                <Card>
+                  <div className="flex items-start gap-6 p-6">
+                    {/* Logo column */}
+                    <div className="w-16 h-16 relative flex-shrink-0">
+                      <Image
+                        src={item.logo}
+                        alt={`${item.company} logo`}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
 
-          <div className="space-y-6">
-            {activeTab === "education" &&
-              education.map((item, index) => (
-                <div key={index} className="opacity-0 animate-fadeInUp" style={{ animationDelay: `${index * 150}ms` }}>
-                  <Card>
-                    <CardHeader>
-                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                        <CardTitle>{item.degree}</CardTitle>
-                        <Badge variant="outline">{item.period}</Badge>
-                      </div>
-                      <p className="text-primary font-medium">{item.institution}</p>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <p>{item.description}</p>
-                      {item.achievements.length > 0 && (
-                        <div>
-                          <p className="font-medium">Achievements:</p>
-                          <ul className="list-disc list-inside text-muted-foreground">
-                            {item.achievements.map((achievement, i) => (
-                              <li key={i}>{achievement}</li>
-                            ))}
-                          </ul>
+                    {/* Details column */}
+                    <div className="flex-1">
+                      <CardHeader className="p-0">
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+                          <CardTitle>{item.position}</CardTitle>
+                          <Badge variant="outline">{item.period}</Badge>
                         </div>
-                      )}
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
+                        <p className="text-primary font-medium mt-1">
+                          {item.company}
+                        </p>
+                      </CardHeader>
 
-            {activeTab === "work" &&
-              work.map((item, index) => (
-                <div key={index} className="opacity-0 animate-fadeInUp" style={{ animationDelay: `${index * 150}ms` }}>
-                  <Card>
-                    <CardHeader>
-                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                        <CardTitle>{item.position}</CardTitle>
-                        <Badge variant="outline">{item.period}</Badge>
-                      </div>
-                      <p className="text-primary font-medium">{item.company}</p>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <p>{item.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {item.technologies.map((tech, i) => (
-                          <Badge key={i} variant="secondary">
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
-          </div>
-        </div>
+                      <CardContent className="p-0 mt-4">
+                        <p>{item.description}</p>
+                      </CardContent>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </TabsContent>
+        </Tabs>
       </div>
     </section>
   )
