@@ -10,13 +10,15 @@ import Navbar from "@/components/navbar"
 
 export const metadata: Metadata = {
   title: "Sarah Chiang | Computer Science Portfolio",
-  description: "Portfolio website of Sarah Chiang, a computer science student showcasing skills, projects, and experience.",
+  description:
+    "Portfolio website of Sarah Chiang, a computer science student showcasing skills, projects, and experience.",
 }
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+
       <main>
         <Hero />
         <About />
@@ -25,6 +27,7 @@ export default function Home() {
         <Projects />
         <Contact />
       </main>
+
       <Footer />
     </div>
   )
