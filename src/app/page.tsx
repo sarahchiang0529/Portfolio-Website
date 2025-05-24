@@ -9,8 +9,8 @@ import Footer from "@/components/footer"
 import Navbar from "@/components/navbar"
 
 export const metadata: Metadata = {
-  title: "John Doe | Computer Science Portfolio",
-  description: "Portfolio website of John Doe, a computer science student showcasing skills, projects, and experience.",
+  title: "Sarah Chiang | Computer Science Portfolio",
+  description: "Portfolio website of Sarah Chiang, a computer science student showcasing skills, projects, and experience.",
 }
 
 export default function Home() {
