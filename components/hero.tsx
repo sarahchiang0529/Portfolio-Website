@@ -65,7 +65,7 @@ export default function Hero() {
 
           {/* Blurb */}
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            at the University of Western Ontario
+            at Western University
           </p>
 
           {/* Buttons */}
