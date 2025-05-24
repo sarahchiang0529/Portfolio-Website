@@ -4,37 +4,25 @@ import { Github, Linkedin, Mail } from "lucide-react"
 export default function Footer() {
   return (
     <footer className="border-t py-8">
-      <div className="container flex flex-col md:flex-row justify-between items-center gap-4">
-        <div className="flex flex-col items-center md:items-start">
+      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center md:justify-between">
+        {/* Left: Logo */}
+        <div className="order-1 md:order-1">
           <Link href="#home" className="font-bold text-xl">
-            John<span className="text-primary">Doe</span>
+            Sarah<span className="text-primary">Chiang</span>
           </Link>
-          <p className="text-sm text-muted-foreground mt-1">
-            &copy; {new Date().getFullYear()} John Doe. All rights reserved.
+        </div>
+
+        {/* Center: Copyright */}
+        <div className="my-4 md:my-0 order-3 md:order-2 text-center">
+          <p className="text-sm text-muted-foreground">
+            &copy; {new Date().getFullYear()} Sarah Chiang. All rights reserved.
           </p>
         </div>
 
-        <nav className="flex gap-4">
-          <Link href="#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            About
-          </Link>
-          <Link href="#experience" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            Experience
-          </Link>
-          <Link href="#skills" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            Skills
-          </Link>
-          <Link href="#projects" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            Projects
-          </Link>
-          <Link href="#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            Contact
-          </Link>
-        </nav>
-
-        <div className="flex gap-4">
+        {/* Right: Social Icons */}
+        <div className="order-2 md:order-3 flex gap-4">
           <a
-            href="https://github.com"
+            href="https://github.com/sarahchiang0529"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground transition-colors"
@@ -43,7 +31,7 @@ export default function Footer() {
             <Github className="h-5 w-5" />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/sarahchiang0529/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground transition-colors"
@@ -52,7 +40,7 @@ export default function Footer() {
             <Linkedin className="h-5 w-5" />
           </a>
           <a
-            href="mailto:john.doe@example.com"
+            href="mailto:schiang0529@gmail.com"
             className="text-muted-foreground hover:text-foreground transition-colors"
             aria-label="Email"
           >
