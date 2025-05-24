@@ -10,12 +10,11 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
+  // on-scroll background toggle
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    const onScroll = () => setScrolled(window.scrollY > 10)
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
   const navLinks = [
@@ -28,69 +27,94 @@ export default function Navbar() {
   ]
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300",
-        scrolled ? "bg-background/80 backdrop-blur-md shadow-sm" : "bg-transparent",
-      )}
-    >
-      <div className="container flex h-16 items-center justify-between">
-        <Link href="#home" className="font-bold text-xl">
-          John<span className="text-primary">Doe</span>
-        </Link>
+    <>
+      {/* GLOBAL: ensure smooth scroll and offset for anchors */}
+      <style jsx global>{`
+        html {
+          scroll-behavior: smooth;
+          scroll-padding-top: 4rem; /* same as your header height */
+        }
+      `}</style>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {link.name}
-            </Link>
-          ))}
-          <Button asChild size="sm">
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-              Resume
-            </a>
-          </Button>
-        </nav>
+      <header
+        className={cn(
+          "fixed top-0 w-full z-50 transition-colors duration-300",
+          scrolled
+            ? "bg-white/80 backdrop-blur-md shadow-sm"
+            : "bg-transparent"
+        )}
+      >
+        <div className="container mx-auto flex h-16 items-center justify-between px-4">
+          {/* Logo */}
+          <Link href="#home" className="font-bold text-xl">
+            Sarah<span className="text-primary">Chiang</span>
+          </Link>
 
-        {/* Mobile Navigation Toggle */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </Button>
-      </div>
-
-      {/* Mobile Navigation Menu */}
-      {isOpen && (
-        <div className="fixed inset-0 top-16 z-40 bg-background md:hidden">
-          <nav className="flex flex-col items-center gap-4 p-8">
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-lg font-medium py-2"
-                onClick={() => setIsOpen(false)}
+                className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.name}
               </Link>
             ))}
-            <Button asChild className="mt-4 w-full">
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+            <Button asChild size="sm">
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Resume
               </a>
             </Button>
           </nav>
+
+          {/* Mobile menu button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </Button>
         </div>
-      )}
-    </header>
+
+        {/* Mobile menu drawer */}
+        {isOpen && (
+          <div className="md:hidden bg-white/95 backdrop-blur-md shadow-inner">
+            <nav className="flex flex-col gap-4 p-6">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-lg font-medium"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <Button asChild className="mt-4 w-full">
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Resume
+                </a>
+              </Button>
+            </nav>
+          </div>
+        )}
+      </header>
+    </>
   )
 }
