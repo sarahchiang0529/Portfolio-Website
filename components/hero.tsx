@@ -26,16 +26,32 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden"
+      className="
+        relative
+        pt-24 pb-16 md:pt-32 md:pb-24
+        overflow-hidden
+        bg-white dark:bg-black
+      "
     >
-      <div className="container flex flex-col items-center justify-center min-h-[calc(100vh-4rem)]">
+      {/* 1. IFRAME LAYER (transparent background) */}
+      <div className="absolute inset-0 w-full h-full z-0 bg-white dark:bg-black">
+        <iframe
+          src="https://my.spline.design/holoblobs-esJicD7GGwqQnkSIFuW6NanI/"
+          frameBorder="0"
+          allowTransparency
+          style={{ background: "transparent" }}
+          className="w-full h-full"
+        />
+      </div>
+
+      {/* 2. CONTENT LAYER */}
+      <div className="container relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-4rem)]">
         <motion.div
           className="text-center space-y-6 max-w-3xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {/* Heading with waving-hand emoji */}
           <motion.h1
             className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl flex justify-center items-center gap-2"
             initial={{ opacity: 0, y: 20 }}
@@ -57,20 +73,17 @@ export default function Hero() {
             </motion.span>
           </motion.h1>
 
-          {/* Typing subtitle */}
-          <h2 className="text-2xl sm:text-3xl text-muted-foreground h-8">
+          <h2 className="text-2xl sm:text-3xl text-foreground h-8">
             {typedText}
             <span className="animate-pulse">|</span>
           </h2>
 
-          {/* Blurb */}
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-foreground/70 text-lg max-w-2xl mx-auto">
             at Western University
           </p>
 
-          {/* Buttons */}
           <div className="flex flex-wrap justify-center gap-4 pt-4">
-            <Button asChild size="lg">
+            <Button variant="default" size="lg" asChild>
               <a href="#contact">Get in Touch</a>
             </Button>
             <Button variant="outline" size="lg" asChild>
@@ -78,7 +91,6 @@ export default function Hero() {
             </Button>
           </div>
 
-          {/* Social icons */}
           <div className="flex justify-center gap-6 pt-6">
             <Button variant="ghost" size="icon" asChild>
               <a
@@ -107,6 +119,7 @@ export default function Hero() {
             </Button>
           </div>
         </motion.div>
+
         <Scroll />
       </div>
     </section>
