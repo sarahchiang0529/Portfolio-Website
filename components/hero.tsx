@@ -29,12 +29,20 @@ export default function Hero() {
       className="
         relative
         pt-24 pb-16 md:pt-32 md:pb-24
-        overflow-hidden
+        overflow-hidden    
         bg-white dark:bg-black
       "
     >
-      {/* 1. IFRAME LAYER (transparent background) */}
-      <div className="absolute inset-0 w-full h-full z-0 bg-white dark:bg-black">
+      {/* top-right blob */}
+      <div
+        className="
+          absolute top-0 right-0
+          w-2/3 h-2/3
+          translate-x-1/4 -translate-y-1/4
+          pointer-events-none
+          z-0
+        "
+      >
         <iframe
           src="https://my.spline.design/holoblobs-esJicD7GGwqQnkSIFuW6NanI/"
           frameBorder="0"
@@ -44,7 +52,26 @@ export default function Hero() {
         />
       </div>
 
-      {/* 2. CONTENT LAYER */}
+      {/* bottom-left blob */}
+      <div
+        className="
+          absolute bottom-0 left-0
+          w-2/3 h-2/3
+          -translate-x-1/4 translate-y-1/4
+          pointer-events-none
+          z-0
+        "
+      >
+        <iframe
+          src="https://my.spline.design/holoblobs-esJicD7GGwqQnkSIFuW6NanI/"
+          frameBorder="0"
+          allowTransparency
+          style={{ background: "transparent" }}
+          className="w-full h-full"
+        />
+      </div>
+
+      {/* content */}
       <div className="container relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-4rem)]">
         <motion.div
           className="text-center space-y-6 max-w-3xl"
@@ -119,7 +146,6 @@ export default function Hero() {
             </Button>
           </div>
         </motion.div>
-
         <Scroll />
       </div>
     </section>
