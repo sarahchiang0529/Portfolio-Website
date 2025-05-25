@@ -26,22 +26,12 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="
-        relative
-        pt-24 pb-16 md:pt-32 md:pb-24
-        overflow-hidden    
-        bg-white dark:bg-black
-      "
+      className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-white dark:bg-black"
     >
       {/* top-right blob */}
       <div
         className="
-          absolute top-0 right-0
-          w-2/3 h-2/3
-          translate-x-1/4 -translate-y-1/4
-          pointer-events-none
-          z-0
-        "
+          absolute top-0 right-0 w-2/3 h-2/3 translate-x-1/4 -translate-y-1/4 pointer-events-none z-0"
       >
         <iframe
           src="https://my.spline.design/holoblobs-esJicD7GGwqQnkSIFuW6NanI/"
@@ -54,14 +44,9 @@ export default function Hero() {
 
       {/* bottom-left blob */}
       <div
-        className="
-          absolute bottom-0 left-0
-          w-2/3 h-2/3
-          -translate-x-1/4 translate-y-1/4
-          pointer-events-none
-          z-0
-        "
+        className="absolute bottom-0 left-0 w-2/3 h-2/3 -translate-x-1/4 translate-y-1/4 pointer-events-none z-0"
       >
+        
         <iframe
           src="https://my.spline.design/holoblobs-esJicD7GGwqQnkSIFuW6NanI/"
           frameBorder="0"
