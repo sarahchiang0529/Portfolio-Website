@@ -52,12 +52,11 @@ export default function About() {
             </p>
             <p className="text-muted-foreground">
               I love collaborating in teams to create high-quality software.
-              I build mostly in TS & Python with strong competences in React, Node, GraphQL, PyTorch, and SQL dbs.
+              I build mostly in TypeScript and Python with strong competences in React, Node.js, GraphQL, PyTorch, and SQL databases.
             </p>
             <p className="text-muted-foreground">
-              Outside of academics, I enjoy participating in hackathons, contributing to open-source projects, and staying 
-              current with the latest technological developments. When I’m not coding, you’ll often find me taking photos, 
-              exploring new places, or vlogging about my adventures.
+              Outside of academics, I enjoy contributing to open-source projects, and staying current with the latest technological 
+              developments. When I’m not coding, you’ll often find me taking photos, exploring new places, or vlogging about my adventures.
             </p>
 
             <Button asChild size="lg" className="mt-4">
