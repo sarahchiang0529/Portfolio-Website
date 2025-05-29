@@ -112,6 +112,6 @@
   }
   .blob {
     overflow: hidden;
-    animation: blob 8s ease-in-out infinite;
+    animation: blob 5s ease-in-out infinite;
   }
 }
