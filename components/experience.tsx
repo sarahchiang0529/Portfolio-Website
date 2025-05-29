@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/badge"
 export default function Experience() {
   const work = [
     {
-      logo: "/logos/western.jpg",
+      logo: "/logos/western.png",
       position: "Software Developer",
       company: "ALICE A BRUXELLES",
       period: "May 2025 – Present",
@@ -27,7 +27,7 @@ export default function Experience() {
         "Engineered FINANCE4HER, a React/Node.js financial literacy app with secure authentication and real-time data visualization.",
     },
     {
-      logo: "/logos/go-hockey.jpg",
+      logo: "/logos/go-hockey.png",
       position: "Project Manager",
       company: "GO Hockey",
       period: "Sept 2024 – Jan 2025",
