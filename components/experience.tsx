@@ -1,12 +1,10 @@
-// src/components/Experience.tsx
 "use client"
 
 import React from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 import { Tabs, TabsContent } from "@/components/ui/tabs"
-import { Badge } from "@/components/ui/badge"
 
 export default function Experience() {
   const work = [
@@ -43,7 +41,7 @@ export default function Experience() {
         "Developed an automated NLP pipeline—leveraging spaCy, custom regex rules, and LLM-driven prompts—to systematically extract and standardize critical clinical data from unstructured patient notes.",
     },
     {
-      logo: "/logos/uwo-tsi.png",
+      logo: "/logos/tsi.png",
       position: "Frontend Developer",
       company: "UWO Tech for Social Impact",
       period: "May 2024 – Aug 2024",
@@ -81,33 +79,39 @@ export default function Experience() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
-                <Card>
+                <Card className="bg-card dark:bg-card border border-border dark:border-border rounded-lg">
                   <div className="flex items-start gap-6 p-6">
-                    {/* Logo column */}
-                    <div className="w-16 h-16 relative flex-shrink-0">
+                    {/* Logo */}
+                    <div className="w-16 h-16 flex-shrink-0 relative">
                       <Image
                         src={item.logo}
                         alt={`${item.company} logo`}
                         fill
-                        className="object-contain"
+                        className="object-contain rounded-md"
                       />
                     </div>
 
-                    {/* Details column */}
+                    {/* Text Content */}
                     <div className="flex-1">
-                      <CardHeader className="p-0">
-                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                          <CardTitle>{item.position}</CardTitle>
-                          <Badge variant="outline">{item.period}</Badge>
-                        </div>
-                        <p className="text-primary font-medium mt-1">
-                          {item.company}
-                        </p>
-                      </CardHeader>
+                      {/* Company Name */}
+                      <h3 className="text-xl font-bold text-foreground dark:text-foreground">
+                        {item.company}
+                      </h3>
 
-                      <CardContent className="p-0 mt-4">
-                        <p>{item.description}</p>
-                      </CardContent>
+                      {/* Position Subtitle */}
+                      <p className="mt-1 text-blue-600 dark:text-blue-400 font-medium">
+                        {item.position}
+                      </p>
+
+                      {/* Period */}
+                      <p className="mt-1 text-sm text-muted-foreground dark:text-muted-foreground">
+                        {item.period}
+                      </p>
+
+                      {/* Description */}
+                      <p className="mt-4 text-foreground dark:text-foreground">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
                 </Card>
