@@ -68,7 +68,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Hi, I’m <span className="text-primary">Sarah Chiang</span>
+            Hi, I’m Sarah Chiang
             <motion.span
               className="text-4xl"
               animate={{ rotate: [0, 20, -20, 20, -20, 0] }}

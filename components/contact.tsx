@@ -3,13 +3,8 @@
 import React, { useRef, useState, useEffect } from "react"
 import emailjs from "@emailjs/browser"
 import { motion } from "@/src/lib/motion"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} 
+from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -64,14 +59,16 @@ export default function Contact() {
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
-          className="text-center mb-12"
+          className="space-y-2 text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold sm:text-4xl">Get In Touch</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            Get In Touch
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             Have a question or want to work together? Feel free to contact me!
           </p>
         </motion.div>
