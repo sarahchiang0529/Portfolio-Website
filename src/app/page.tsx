@@ -9,7 +9,7 @@ import Footer from "@/components/footer"
 import Navbar from "@/components/navbar"
 
 export const metadata: Metadata = {
-  title: "Sarah Chiang | Computer Science Portfolio",
+  title: "Sarah Chiang | Portfolio",
   description:
     "Portfolio website of Sarah Chiang, a computer science student showcasing skills, projects, and experience.",
 }
