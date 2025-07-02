@@ -13,58 +13,37 @@ export default function Projects() {
 
   const projects = [
     {
-      title: "AI-Powered Study Assistant",
-      description:
-        "A web application that uses natural language processing to help students study more effectively by generating quizzes, summarizing content, and providing personalized learning paths.",
-      image: "/ai-study-assistant-app.png",
-      tags: ["React", "Python", "TensorFlow", "NLP", "Firebase"],
-      github: "https://github.com",
-      demo: "https://example.com",
+      title: "Alice à Bruxelles",
+      description: "An immersive art exhibition website showcasing 3D galleries, allowing users to virtually navigate and explore curated artworks in a seamless, interactive experience.",      
+      image: "/projects/alice-a-bruxelles.jpg",
+      tags: ["Unity", "WebGL", "C", "React", "JavaScript"],
+      github: "https://github.com/Gayitha/Alice-a-Bruxelles",
+      demo: "https://alice-bruxelles.vercel.app",
     },
     {
-      title: "E-commerce Platform",
+      title: "FINANCE4HER",
       description:
-        "A full-stack e-commerce platform with user authentication, product catalog, shopping cart, payment integration, and admin dashboard for managing products and orders.",
-      image: "/placeholder.svg?height=400&width=600&query=e-commerce website dashboard",
-      tags: ["Next.js", "MongoDB", "Stripe", "Redux", "Tailwind CSS"],
-      github: "https://github.com",
-      demo: "https://example.com",
+        "A financial literacy platform offering interactive modules, budgeting tools and tips to empower women in managing personal finances.",
+      image: "/projects/finance4her.jpg",
+      tags: ["React", "JavaScript", "Tailwind CSS", "Auth0", "Express", "Supabase", "Material UI"], 
+      github: "https://github.com/sarahchiang0529/FINANCE4HER",
+      demo: "https://finance4her.com",
     },
     {
-      title: "Smart Home IoT Dashboard",
+      title: "GO Hockey",
+      description: "A full‐stack e-commerce website for hockey enthusiasts to sign up for events and purchase merchandise.",        
+      image: "/projects/go-hockey.jpg",
+      tags: ["Angular", "Bootstrap", "Node.js", "Express"],
+      demo: "https://gohockey.org",
+    },    
+    {
+      title: "UWO TSI",
       description:
-        "An IoT dashboard for monitoring and controlling smart home devices. Features include real-time data visualization, device management, automation rules, and mobile responsiveness.",
-      image: "/placeholder.svg?height=400&width=600&query=smart home IoT dashboard",
+        "An IoT dashboard for Western’s TSI lab: real-time device monitoring, customizable automations, and historical data visualizations.",
+      image: "/projects/uwo-tsi.jpg",
       tags: ["React", "Node.js", "MQTT", "Chart.js", "Socket.io"],
-      github: "https://github.com",
-      demo: "https://example.com",
-    },
-    {
-      title: "Fitness Tracking Mobile App",
-      description:
-        "A cross-platform mobile application for tracking workouts, nutrition, and fitness progress. Includes features like custom workout plans, calorie counter, and progress analytics.",
-      image: "/placeholder.svg?height=400&width=600&query=fitness tracking mobile app",
-      tags: ["React Native", "Firebase", "Redux", "Health API", "Expo"],
-      github: "https://github.com",
-      demo: "https://example.com",
-    },
-    {
-      title: "Algorithmic Trading Bot",
-      description:
-        "A Python-based trading bot that uses machine learning algorithms to analyze market data and execute trades automatically based on predefined strategies.",
-      image: "/placeholder.svg?height=400&width=600&query=trading bot dashboard with charts",
-      tags: ["Python", "Machine Learning", "API Integration", "Data Analysis"],
-      github: "https://github.com",
-      demo: "https://example.com",
-    },
-    {
-      title: "Collaborative Code Editor",
-      description:
-        "A real-time collaborative code editor with syntax highlighting, code execution, and video chat capabilities for remote pair programming sessions.",
-      image: "/placeholder.svg?height=400&width=600&query=collaborative code editor interface",
-      tags: ["JavaScript", "WebSockets", "Monaco Editor", "WebRTC"],
-      github: "https://github.com",
-      demo: "https://example.com",
+      github: "https://github.com/dahan8473/Club_Website",
+      demo: "https://uwotsi.com",
     },
   ]
 
@@ -82,8 +61,12 @@ export default function Projects() {
           transition={{ duration: 0.5 }}
           className="space-y-2 text-center mb-12"
         >
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Featured Projects</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">A selection of my recent work and personal projects</p>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            Featured Projects
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            A selection of my recent work and personal projects.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -98,7 +81,7 @@ export default function Projects() {
               <Card className="h-full flex flex-col overflow-hidden group">
                 <div className="relative overflow-hidden aspect-video">
                   <Image
-                    src={project.image || "/placeholder.svg"}
+                    src={project.image}
                     alt={project.title}
                     width={600}
                     height={400}
@@ -120,12 +103,20 @@ export default function Projects() {
                 </CardContent>
                 <CardFooter className="flex justify-between">
                   <Button variant="outline" size="sm" asChild>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Github className="mr-2 h-4 w-4" /> Code
                     </a>
                   </Button>
                   <Button size="sm" asChild>
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
                     </a>
                   </Button>
@@ -137,7 +128,11 @@ export default function Projects() {
 
         {visibleProjects < projects.length && (
           <div className="flex justify-center mt-12">
-            <Button onClick={showMoreProjects} variant="outline" className="gap-2">
+            <Button
+              onClick={showMoreProjects}
+              variant="outline"
+              className="gap-2"
+            >
               Load More Projects <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
