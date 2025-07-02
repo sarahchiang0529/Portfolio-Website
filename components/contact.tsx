@@ -3,8 +3,13 @@
 import React, { useRef, useState, useEffect } from "react"
 import emailjs from "@emailjs/browser"
 import { motion } from "@/src/lib/motion"
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} 
-from "@/components/ui/card"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -16,9 +21,8 @@ export default function Contact() {
   const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  // Initialize EmailJS once
   useEffect(() => {
-    emailjs.init("HCUDCwgb1LrzTVEWN") // ← your public key
+    emailjs.init("HCUDCwgb1LrzTVEWN")
   }, [])
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -29,8 +33,8 @@ export default function Contact() {
 
     emailjs
       .sendForm(
-        "service_sarahchiang",    // ← your service ID
-        "template_sarahchiang",   // ← your template ID
+        "service_sarahchiang",
+        "template_sarahchiang",
         formRef.current
       )
       .then(
@@ -41,21 +45,18 @@ export default function Contact() {
           })
           formRef.current?.reset()
         },
-        (err) => {
-          console.error("EmailJS error:", err)
+        () => {
           toast({
             title: "Uh oh—something went wrong.",
             description: "Please try again later.",
           })
         }
       )
-      .finally(() => {
-        setIsSubmitting(false)
-      })
+      .finally(() => setIsSubmitting(false))
   }
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-white">
+    <section id="contact" className="py-16 md:py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -75,7 +76,7 @@ export default function Contact() {
 
         {/* Two-column layout */}
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {/* Left: Your Info */}
+          {/* Left: Contact Info */}
           <motion.div
             className="space-y-8"
             initial={{ opacity: 0, x: -20 }}
@@ -91,52 +92,54 @@ export default function Contact() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="bg-gray-100 p-3 rounded-full text-gray-700">
-                    <Mail className="h-6 w-6" />
+                {[
+                  {
+                    icon: <Mail className="h-6 w-6 text-primary" />,
+                    label: "Email",
+                    value: (
+                      <a
+                        href="mailto:schiang0529@gmail.com"
+                        className="font-medium hover:underline"
+                      >
+                        schiang0529@gmail.com
+                      </a>
+                    ),
+                  },
+                  {
+                    icon: <Phone className="h-6 w-6 text-primary" />,
+                    label: "Phone",
+                    value: (
+                      <a
+                        href="tel:+16479391385"
+                        className="font-medium hover:underline"
+                      >
+                        +1 (647) 939-1385
+                      </a>
+                    ),
+                  },
+                  {
+                    icon: <MapPin className="h-6 w-6 text-primary" />,
+                    label: "Location",
+                    value: <span className="font-medium">North York, ON</span>,
+                  },
+                ].map(({ icon, label, value }) => (
+                  <div key={label} className="flex items-center gap-4">
+                    <div className="bg-muted p-3 rounded-full">
+                      {icon}
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">{label}</p>
+                      {value}
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Email</p>
-                    <a
-                      href="mailto:schiang0529@gmail.com"
-                      className="font-medium hover:underline text-gray-800"
-                    >
-                      schiang0529@gmail.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="bg-gray-100 p-3 rounded-full text-gray-700">
-                    <Phone className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Phone</p>
-                    <a
-                      href="tel:+16479391385"
-                      className="font-medium hover:underline text-gray-800"
-                    >
-                      +1 (647) 939-1385
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="bg-gray-100 p-3 rounded-full text-gray-700">
-                    <MapPin className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Location</p>
-                    <p className="font-medium text-gray-800">North York, ON</p>
-                  </div>
-                </div>
+                ))}
 
                 <div>
-                  <p className="text-sm text-gray-500 mb-2">
+                  <p className="text-sm text-muted-foreground mb-2">
                     Connect with me on social media:
                   </p>
                   <div className="flex gap-4">
-
+                    
                     {/* GitHub */}
                     <Button variant="outline" size="icon" asChild>
                       <a
@@ -242,24 +245,20 @@ export default function Contact() {
                   className="space-y-4"
                 >
                   <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label
-                        htmlFor="name"
-                        className="block text-sm font-medium mb-1"
-                      >
-                        Name
-                      </label>
-                      <Input id="name" name="name" required />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium mb-1"
-                      >
-                        Email
-                      </label>
-                      <Input id="email" name="email" type="email" required />
-                    </div>
+                    {[
+                      { id: "name", label: "Name", type: "text" },
+                      { id: "email", label: "Email", type: "email" },
+                    ].map(({ id, label, type }) => (
+                      <div key={id}>
+                        <label
+                          htmlFor={id}
+                          className="block text-sm font-medium mb-1"
+                        >
+                          {label}
+                        </label>
+                        <Input id={id} name={id} type={type} required />
+                      </div>
+                    ))}
                   </div>
 
                   <div>
@@ -272,7 +271,11 @@ export default function Contact() {
                     <Textarea id="message" name="message" rows={5} required />
                   </div>
 
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
                     {isSubmitting ? "Sending..." : "Send Message"}
                     <Send className="ml-2 h-4 w-4" />
                   </Button>
