@@ -52,7 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
 
-      <body className="antialiased bg-background text-foreground">
+      <body suppressHydrationWarning className="antialiased bg-background text-foreground">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
