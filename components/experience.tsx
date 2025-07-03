@@ -10,8 +10,8 @@ export default function Experience() {
   const work = [
     {
       logo: "/logos/western.png",
-      position: "Software Developer",
-      company: "ALICE A BRUXELLES",
+      position: "Front-end & Unity Developer",
+      company: "Alice-a-Bruxelles Interactive WebGL Experience",
       period: "May 2025 – Present",
       description:
         "Built an interactive 3D art exhibition website with Unity for immersive virtual navigation.",
@@ -34,7 +34,7 @@ export default function Experience() {
     },
     {
       logo: "/logos/lhsc.avif",
-      position: "Software Developer",
+      position: "Database Developer",
       company: "London Health Sciences Centre",
       period: "May 2024 – Aug 2024",
       description:
