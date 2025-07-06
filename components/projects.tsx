@@ -30,8 +30,7 @@ export default function Projects() {
     },
     {
       title: "FINANCE4HER",
-      description:
-        "A financial literacy platform offering interactive modules, budgeting tools and tips to empower women in managing personal finances.",
+      description: "A financial literacy platform offering interactive modules, budgeting tools and tips to empower women in managing personal finances.",
       image: "/projects/finance4her.jpg",
       tags: ["React", "JavaScript", "Tailwind CSS", "Auth0", "Express", "Supabase", "Material UI"], 
       github: "https://github.com/sarahchiang0529/FINANCE4HER",
