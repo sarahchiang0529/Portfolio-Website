@@ -13,6 +13,14 @@ export default function Projects() {
 
   const projects = [
     {
+      title: "TaskMate",
+      description: "A modern, web-based project management and issue-tracking platform designed to streamline team collaboration and delivery with Kanban boards, advanced analytics, calendar integration, and secure role-based access.",
+      image: "/projects/taskmate.jpg",
+      tags: ["React", "TypeScript", "Supabase", "Tailwind CSS", "Vite"],
+      github: "https://github.com/sarahchiang0529/TaskMate",
+      demo: "https://TaskMate.vercel.app",
+    },
+    {
       title: "Alice à Bruxelles",
       description: "An immersive art exhibition website showcasing 3D galleries, allowing users to virtually navigate and explore curated artworks in a seamless, interactive experience.",      
       image: "/projects/alice-a-bruxelles.jpg",
@@ -38,10 +46,9 @@ export default function Projects() {
     },    
     {
       title: "UWO TSI",
-      description:
-        "An IoT dashboard for Western’s TSI lab: real-time device monitoring, customizable automations, and historical data visualizations.",
+      description: "An IoT dashboard for Western’s TSI lab: real-time device monitoring, customizable automations, and historical data visualizations.",
       image: "/projects/uwo-tsi.jpg",
-      tags: ["React", "Node.js", "MQTT", "Chart.js", "Socket.io"],
+      tags: ["HTML", "Vite", "React", "Tailwind CSS", "Figma"],
       github: "https://github.com/dahan8473/Club_Website",
       demo: "https://uwotsi.com",
     },
