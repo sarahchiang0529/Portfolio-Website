@@ -18,7 +18,9 @@ export default function Projects() {
       image: "/projects/taskmate.jpg",
       tags: ["React", "TypeScript", "Supabase", "Tailwind CSS", "Vite"],
       github: "https://github.com/sarahchiang0529/TaskMate",
+      /*
       demo: "https://TaskMate.vercel.app",
+      */
     },
     {
       title: "Alice à Bruxelles",
@@ -26,7 +28,9 @@ export default function Projects() {
       image: "/projects/alice-a-bruxelles.jpg",
       tags: ["Unity", "WebGL", "C", "React", "JavaScript"],
       github: "https://github.com/Gayitha/Alice-a-Bruxelles",
+      /*
       demo: "https://alice-bruxelles.vercel.app",
+      */
     },
     {
       title: "FINANCE4HER",
@@ -34,14 +38,18 @@ export default function Projects() {
       image: "/projects/finance4her.jpg",
       tags: ["React", "JavaScript", "Tailwind CSS", "Auth0", "Express", "Supabase", "Material UI"], 
       github: "https://github.com/sarahchiang0529/FINANCE4HER",
+      /*
       demo: "https://finance4her.com",
+      */
     },
     {
       title: "GO Hockey",
       description: "A full‐stack e-commerce website for hockey enthusiasts to sign up for events and purchase merchandise.",        
       image: "/projects/go-hockey.jpg",
       tags: ["Angular", "Bootstrap", "Node.js", "Express"],
+      /*
       demo: "https://gohockey.org",
+      */
     },    
     {
       title: "UWO TSI",
