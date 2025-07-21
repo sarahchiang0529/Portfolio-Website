@@ -27,7 +27,7 @@ export default function Projects() {
       description: "An immersive art exhibition website showcasing 3D galleries, allowing users to virtually navigate and explore curated artworks in a seamless, interactive experience.",      
       image: "/projects/alice-a-bruxelles.jpg",
       tags: ["Unity", "WebGL", "C", "React", "JavaScript"],
-      github: "https://github.com/Gayitha/Alice-a-Bruxelles",
+      github: "https://github.com/sarahchiang0529/Alice-a-Bruxelles-Website",
       /*
       demo: "https://alice-bruxelles.vercel.app",
       */
