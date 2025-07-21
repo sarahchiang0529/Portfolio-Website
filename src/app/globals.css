@@ -115,3 +115,15 @@
     animation: blob 5s ease-in-out infinite;
   }
 }
+
+/* Completely hide Next.js DevTools floating button */
+nextjs-portal,
+nextjs-portal > div[data-nextjs-devtools-button],
+div[data-nextjs-devtools-button] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
