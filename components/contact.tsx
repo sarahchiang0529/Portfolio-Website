@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
-import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { Mail, MapPin, Send } from "lucide-react"
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null)
@@ -102,18 +102,6 @@ export default function Contact() {
                         className="font-medium hover:underline"
                       >
                         schiang0529@gmail.com
-                      </a>
-                    ),
-                  },
-                  {
-                    icon: <Phone className="h-6 w-6 text-primary" />,
-                    label: "Phone",
-                    value: (
-                      <a
-                        href="tel:+16479391385"
-                        className="font-medium hover:underline"
-                      >
-                        +1 (647) 939-1385
                       </a>
                     ),
                   },
