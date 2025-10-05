@@ -68,7 +68,7 @@ export default function Navbar() {
 
             {/* resume */}
             <Button asChild size="sm">
-              <a href="/SarahChiangResume.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="/SarahChiangResumee.pdf" target="_blank" rel="noopener noreferrer">
                 Resume
               </a>
             </Button>

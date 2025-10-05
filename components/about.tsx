@@ -60,7 +60,7 @@ export default function About() {
             </p>
 
             <Button asChild size="lg" className="mt-4">
-              <a href="/SarahChiangResume.pdf" download>
+              <a href="/SarahChiangResumee.pdf" download>
                 <Download className="mr-2 h-4 w-4" /> Download Resume
               </a>
             </Button>
